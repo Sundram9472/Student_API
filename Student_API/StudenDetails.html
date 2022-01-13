@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <script src="Scripts/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var ulStudent = $('#ulStudent');
+            $('#btn').click(function () {
+                debugger
+                $.ajax({
+                    type: 'Get',
+                    url: 'api/Student',
+                    dataType: 'json',
+                    success: function (data) {
+                        debugger
+                        ulStudent.empty();
+                        $.each(data, function (index, val) {
+                            var fullName = val.Student_FirstName + val.Student_LastName;
+                            ulStudent.append('<li>' + fullName + '</li>');
+                        });
+                    }
+                });
+            });
+            $('#clearbtn').click(function () {
+                ulStudent.empty();
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button" id="btn" value="Get All Student" />
+    <input type="button" id="clearbtn" value="Clear" />
+    <ul id="ulStudent" />
+</body>
+</html>
