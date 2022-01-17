@@ -32,9 +32,9 @@ namespace Student_API.Controllers
                               _DB.Student_Details_Sundram.Where(x => x.Student_UniversityName.ToLower() == "cec").ToList());
 
                     default:
-                        //return Request.CreateResponse(HttpStatusCode.BadRequest,
-                        //                "College Not Found From Specified College");
-                        return Request.CreateResponse(HttpStatusCode.OK, _DB.Student_Details_Sundram.ToList());
+                        return Request.CreateResponse(HttpStatusCode.BadRequest,
+                                        "College Not Found From Specified College..!");
+                 
                         
                 }
             }
